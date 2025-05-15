@@ -8,6 +8,7 @@ requests = "*"
 pyaml = "*"
 dnspython = "*"
 rich = "*"
+pyinstaller = "*"
 
 [dev-packages]
 

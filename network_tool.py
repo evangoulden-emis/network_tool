@@ -52,8 +52,8 @@ def bgp(bgp: Namespace):
             except requests.exceptions.RequestException as e:
                 console.print(f"[bold red]Error:[/bold red] {e}")
                 return
-            else:
-                print(f"Error: Unable to retrieve BGP information for ASN {asn}.")
+        else:
+            print(f"Error: Unable to retrieve BGP information for ASN {asn}.")
 
     except NameError:
         pass
