@@ -1,5 +1,4 @@
 from argparse import ArgumentParser, Namespace
-
 import requests
 from dns import resolver
 from rich.console import Console
@@ -7,7 +6,6 @@ from rich.table import Table
 import ipaddress
 
 BGPVIEW = "https://api.bgpview.io"
-
 
 def main(args: Namespace):
     if args.fqdn is None and args.nameserver is None and args.subnet is None and args.target_host is None \
