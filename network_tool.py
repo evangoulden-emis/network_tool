@@ -35,7 +35,6 @@ def bgp(bgp: Namespace):
                 response = requests.get(f"{BGPVIEW}/asn/{asn}/prefixes")
                 if response.status_code == 200:
                     data = response.json()
-                    # Extract relevant information
                     asn_info = data.get('data', {})
                     prefixes = asn_info.get('ipv4_prefixes', [])
                     table = Table(title=f"ASN {asn} Information", show_lines=True)
@@ -60,9 +59,7 @@ def bgp(bgp: Namespace):
                 response = requests.get(f"{BGPVIEW}/prefix/{prefix}")
                 if response.status_code == 200:
                     data = response.json()
-                    # Extract relevant information
                     prefix_info = data.get('data', {})
-                    prefixes = prefix_info.get('ipv4_prefixes', [])
                     prefix_table = Table(title=f"Prefix {prefix} Information", show_lines=True)
                     prefix_table.add_column("Name", style="cyan")
                     prefix_table.add_column("Prefix", style="green")
