@@ -66,12 +66,16 @@ def bgp(bgp: Namespace):
                     prefix_table = Table(title=f"Prefix {prefix} Information", show_lines=True)
                     prefix_table.add_column("Name", style="cyan")
                     prefix_table.add_column("Prefix", style="green")
-                    prefix_table.add_column("ASN", style="magenta")
+                    prefix_table.add_column("IP", style="blue")
+                    prefix_table.add_column("Description", style="magenta")
+                    prefix_table.add_column("ASN Count", style="blue_violet")
                     prefix_table.add_column("Status", style="yellow")
                     prefix_table.add_row(
                         prefix_info['name'],
                         prefix_info['prefix'],
-                        str(prefix_info['cidr']),
+                        prefix_info['ip'],
+                        prefix_info['description_short'] if prefix_info['description_short'] else "UNKNOWN",
+                        str(len(prefix_info['asns'])),
                         "✓"
                     )
                     asn_count = len(prefix_info['asns'])
